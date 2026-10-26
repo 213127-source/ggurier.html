@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pokémon Adventure - Offline Pure Edition</title>
+<title>Pokémon Adventure - Guaranteed Win Edition</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:sans-serif;background:linear-gradient(135deg,#1a2a6c,#b21f1f,#fdbb2d);display:flex;justify-content:center;align-items:center;min-height:100vh}
@@ -486,7 +486,33 @@ const LEGENDARY_IDS=[1001,1002,1003,1004,1007,1008,1015,1016,1017,1025,1018,1024
 const CONTINUOUS_MOVES={normal:[{name:'みだれひっかく',power:18,hits:[2,5],type:'normal',pp:20,maxPp:20},{name:'ダブルスラッシュ',power:35,hits:[2,2],type:'normal',pp:15,maxPp:15}],fire:[{name:'ほのおのれんぞく',power:20,hits:[2,5],type:'fire',pp:20,maxPp:20},{name:'ダブルファイア',power:40,hits:[2,2],type:'fire',pp:15,maxPp:15}],water:[{name:'みずのれんぞく',power:20,hits:[2,5],type:'water',pp:20,maxPp:20},{name:'ダブルアクア',power:40,hits:[2,2],type:'water',pp:15,maxPp:15}],grass:[{name:'たねマシンショット',power:25,hits:[2,5],type:'grass',pp:20,maxPp:20},{name:'ダブルリーフ',power:45,hits:[2,2],type:'grass',pp:15,maxPp:15}],electric:[{name:'でんきのれんぞく',power:20,hits:[2,5],type:'electric',pp:20,maxPp:20},{name:'ダブルスパーク',power:40,hits:[2,2],type:'electric',pp:15,maxPp:15}],ice:[{name:'つららばり',power:25,hits:[2,5],type:'ice',pp:20,maxPp:20},{name:'ダブルアイス',power:45,hits:[2,2],type:'ice',pp:15,maxPp:15}],fighting:[{name:'ダブルチョップ',power:40,hits:[2,2],type:'fighting',pp:15,maxPp:15},{name:'れんぞくパンチ',power:18,hits:[2,5],type:'fighting',pp:20,maxPp:20}],poison:[{name:'どくのれんぞく',power:20,hits:[2,5],type:'poison',pp:20,maxPp:20},{name:'ダブルポイズン',power:40,hits:[2,2],type:'poison',pp:15,maxPp:15}],ground:[{name:'じめんのれんぞく',power:20,hits:[2,5],type:'ground',pp:20,maxPp:20},{name:'ダブルアース',power:40,hits:[2,2],type:'ground',pp:15,maxPp:15}],flying:[{name:'つばさのれんぞく',power:20,hits:[2,5],type:'flying',pp:20,maxPp:20},{name:'ダブルエアー',power:40,hits:[2,2],type:'flying',pp:15,maxPp:15}],psychic:[{name:'ねんりのれんぞく',power:20,hits:[2,5],type:'psychic',pp:20,maxPp:20},{name:'ダブルサイコ',power:40,hits:[2,2],type:'psychic',pp:15,maxPp:15}],bug:[{name:'むしのれんぞく',power:20,hits:[2,5],type:'bug',pp:20,maxPp:20},{name:'ダブルバグ',power:40,hits:[2,2],type:'bug',pp:15,maxPp:15}],rock:[{name:'ロックブラスト',power:25,hits:[2,5],type:'rock',pp:20,maxPp:20},{name:'ダブルロック',power:45,hits:[2,2],type:'rock',pp:15,maxPp:15}],ghost:[{name:'ゴーストのれんぞく',power:20,hits:[2,5],type:'ghost',pp:20,maxPp:20},{name:'ダブルシャドウ',power:40,hits:[2,2],type:'ghost',pp:15,maxPp:15}],dragon:[{name:'スケイルショット',power:25,hits:[2,5],type:'dragon',pp:20,maxPp:20},{name:'ダブルドラゴン',power:45,hits:[2,2],type:'dragon',pp:15,maxPp:15}],dark:[{name:'ラッシュアタック',power:25,hits:[2,5],type:'dark',pp:20,maxPp:20},{name:'ダブルダーク',power:45,hits:[2,2],type:'dark',pp:15,maxPp:15}],steel:[{name:'はがねのれんぞく',power:20,hits:[2,5],type:'steel',pp:20,maxPp:20},{name:'ダブルスチール',power:40,hits:[2,2],type:'steel',pp:15,maxPp:15}],fairy:[{name:'フェアリーのれんぞく',power:20,hits:[2,5],type:'fairy',pp:20,maxPp:20},{name:'ダブルフェアリー',power:40,hits:[2,2],type:'fairy',pp:15,maxPp:15}]};
 const TYPE_MOVES={normal:[{name:'たいあたり',power:40,pp:30},{name:'ひっかく',power:40,pp:30},{name:'メガトンパンチ',power:80,pp:20},{name:'ギガインパクト',power:150,pp:5}],fire:[{name:'ひのこ',power:40,pp:25},{name:'かえんほうしゃ',power:90,pp:15},{name:'だいもんじ',power:110,pp:5},{name:'オーバーヒート',power:130,pp:5}],water:[{name:'みずでっぽう',power:40,pp:25},{name:'バブルビーム',power:65,pp:20},{name:'ハイドロポンプ',power:110,pp:5},{name:'なみのり',power:90,pp:15}],grass:[{name:'はっぱカッター',power:45,pp:25},{name:'エナジーボール',power:90,pp:10},{name:'ソーラービーム',power:120,pp:10},{name:'ギガドレイン',power:75,pp:10}],electric:[{name:'でんきショック',power:40,pp:30},{name:'10まんボルト',power:90,pp:15},{name:'かみなり',power:110,pp:10},{name:'ボルトチェンジ',power:70,pp:20}],ice:[{name:'こおりのつぶて',power:40,pp:30},{name:'れいとうビーム',power:90,pp:10},{name:'ふぶき',power:110,pp:5}],fighting:[{name:'からてチョップ',power:50,pp:25},{name:'インファイト',power:120,pp:5},{name:'きあいパンチ',power:150,pp:5}],poison:[{name:'どくばり',power:15,pp:35},{name:'ヘドロばくだん',power:90,pp:10},{name:'ポイズンジャブ',power:80,pp:20}],ground:[{name:'すなじごく',power:35,pp:15},{name:'じしん',power:100,pp:10},{name:'アースパワー',power:90,pp:10}],flying:[{name:'つばさでうつ',power:60,pp:35},{name:'ブレイブバード',power:120,pp:15},{name:'エアスラッシュ',power:75,pp:15}],psychic:[{name:'ねんりき',power:50,pp:25},{name:'サイコキネシス',power:90,pp:10},{name:'みらいよち',power:120,pp:10}],bug:[{name:'むしのていこう',power:60,pp:20},{name:'メガホーン',power:120,pp:10},{name:'シザークロス',power:80,pp:15}],rock:[{name:'いわおとし',power:50,pp:15},{name:'ストーンエッジ',power:100,pp:5},{name:'いわなだれ',power:75,pp:10}],ghost:[{name:'シャドーボール',power:80,pp:15},{name:'シャドークロー',power:70,pp:15}],dragon:[{name:'りゅうのいかり',power:40,pp:10},{name:'ドラゴンクロー',power:80,pp:15},{name:'りゅうせいぐん',power:130,pp:5}],dark:[{name:'かみつく',power:60,pp:25},{name:'かみくだく',power:80,pp:15},{name:'つじぎり',power:70,pp:15}],steel:[{name:'メタルクロー',power:50,pp:35},{name:'アイアンヘッド',power:80,pp:15}],fairy:[{name:'ようせいのかぜ',power:40,pp:30},{name:'マジカルシャイン',power:80,pp:10},{name:'ムーンフォース',power:95,pp:15}]};
 const LEVEL_MOVES={5:[{name:'たいあたり',power:40,pp:30,type:'normal'}],10:[{name:'ひっかく',power:40,pp:30,type:'normal'},{name:'でんきショック',power:40,pp:30,type:'electric'}],15:[{name:'はっぱカッター',power:45,pp:25,type:'grass'},{name:'みずでっぽう',power:40,pp:25,type:'water'}],20:[{name:'かみつく',power:60,pp:25,type:'dark'},{name:'つばさでうつ',power:60,pp:35,type:'flying'}],25:[{name:'かえんほうしゃ',power:90,pp:15,type:'fire'},{name:'バブルビーム',power:65,pp:20,type:'water'}],30:[{name:'10まんボルト',power:90,pp:15,type:'electric'},{name:'サイコキネシス',power:90,pp:10,type:'psychic'}],35:[{name:'れいとうビーム',power:90,pp:10,type:'ice'},{name:'シャドーボール',power:80,pp:15,type:'ghost'}],40:[{name:'だいもんじ',power:110,pp:5,type:'fire'},{name:'ハイドロポンプ',power:110,pp:5,type:'water'}],45:[{name:'インファイト',power:120,pp:5,type:'fighting'},{name:'りゅうせいぐん',power:130,pp:5,type:'dragon'}],50:[{name:'ギガインパクト',power:150,pp:5,type:'normal'},{name:'オーバーヒート',power:130,pp:5,type:'fire'}]};
-const ACHIEVEMENTS=[{id:'first_win',name:'初勝利'},{id:'shiny_get',name:'色違いGET'},{id:'boss_defeat',name:'ボス撃破'},{id:'rank_a',name:'ランクA'},{id:'rival_beat',name:'ライバル撃破'},{id:'dex_100',name:'図鑑100'},{id:'dex_500',name:'図鑑500'},{id:'daily_clear',name:'デイリークリア'},{id:'story_clear',name:'ストーリークリア'},{id:'contest_gold',name:'コンテスト金'},{id:'tower_10',name:'タワー10階'},{id:'tower_50',name:'タワー50階'},{id:'tower_100',name:'タワー100階'},{id:'legend_all',name:'伝説全撃破'},{id:'tera_raichu',name:'テラレイド初挑戦'},{id:'hunt_all_clear',name:'討伐作戦完了'},{id:'gym_champion',name:'ジムチャンピオン'},{id:'elite_four_clear',name:'四天王制覇'},{id:'tiger_conqueror',name:'タイガ撃破'},{id:'gacha_shiny_legend',name:'色違い伝説GET'},{id:'gacha_6v',name:'6V GET'},{id:'infinity_win',name:'インフィニティ初勝利'},{id:'kit_conqueror',name:'Kit制覇'},{id:'shiny_dex_10',name:'色違い10匹収集'},{id:'shiny_dex_50',name:'色違い50匹収集'},{id:'true_master',name:'真のマスター'}];
+const ACHIEVEMENTS=[
+  {id:'first_win',name:'初勝利'},
+  {id:'shiny_get',name:'色違いGET'},
+  {id:'boss_defeat',name:'ボス撃破'},
+  {id:'rank_a',name:'ランクA'},
+  {id:'dex_100',name:'図鑑100'},
+  {id:'dex_500',name:'図鑑500'},
+  {id:'daily_clear',name:'デイリークリア'},
+  {id:'story_clear',name:'ストーリークリア'},
+  {id:'contest_gold',name:'コンテスト金'},
+  {id:'tower_10',name:'タワー10階'},
+  {id:'tower_50',name:'タワー50階'},
+  {id:'tower_100',name:'タワー100階'},
+  {id:'legend_all',name:'伝説全撃破'},
+  {id:'tera_raichu',name:'テラレイド初挑戦'},
+  {id:'hunt_all_clear',name:'討伐作戦完了'},
+  {id:'gym_champion',name:'ジムチャンピオン'},
+  {id:'elite_four_clear',name:'四天王制覇'},
+  {id:'tiger_conqueror',name:'タイガ撃破'},
+  {id:'gacha_shiny_legend',name:'色違い伝説GET'},
+  {id:'gacha_6v',name:'6V GET'},
+  {id:'infinity_win',name:'インフィニティ初勝利'},
+  {id:'kit_conqueror',name:'Kit制覇'},
+  {id:'shiny_dex_10',name:'色違い10匹収集'},
+  {id:'shiny_dex_50',name:'色違い50匹収集'},
+  {id:'true_master',name:'真のマスター'}
+];
 const STORY_CHAPTERS=[
   {id:'paldea1',name:'第1章：パルデア学園入学',desc:'新しい旅の始まり！オーキド博士から最初のポケモンをもらおう。',enemy:{id:25,level:10},reward:{money:1000,rare:3,potion:5}},
   {id:'paldea2',name:'第2章：スター団との遭遇',desc:'いじめに立ち向かうスター団の真実とは？5つのアジトを攻略せよ！',enemy:{id:143,level:20},reward:{money:3000,rare:5,potion:8}},
@@ -595,15 +621,13 @@ function calcDamage(attacker,defender,move){
   const atk=attacker.atk;
   const def=defender.def||(defender.level*2+10);
   
-  // バランス調整: レベル差の影響を緩和
-  let levelDiffFactor = 1.0;
-  if (defender.level > attacker.level) {
-      levelDiffFactor = Math.max(0.5, 1 - (defender.level - attacker.level) * 0.005);
-  } else {
-      levelDiffFactor = 1 + (attacker.level - defender.level) * 0.01;
-  }
+  // 【超重要】3発で倒せるよう、ダメージを極端に増幅
+  // 通常の計算式だと弱すぎるため、固定倍率で底上げ
+  let baseDmg = ((2 * level / 5 + 2) * move.power * (atk / def)) / 50 + 2;
   
-  let baseDmg=((2*level/5+2)*move.power*(atk/def))/50+2;
+  // 最低でも敵の最大HPの35%のダメージを与える保証（3発以内確殺）
+  const minDmgGuarantee = defender.maxHp * 0.35;
+  
   const effectiveness=getTypeEffectiveness(move.type,defender.type);
   const weatherMod=getWeatherModifier(move.type);
   const random=0.9+Math.random()*0.2;
@@ -611,14 +635,17 @@ function calcDamage(attacker,defender,move){
   let itemMod=1;
   if(attacker.heldItem==='ちからのハチマキ')itemMod=1.2;
   
-  let dmg=Math.floor(baseDmg*levelDiffFactor*effectiveness*weatherMod*random*crit*itemMod);
+  let calculatedDmg = Math.floor(baseDmg * effectiveness * weatherMod * random * crit * itemMod);
   
-  // 六王戦用の特別補正
+  // 保証ダメージと計算ダメージの高い方を採用
+  let finalDmg = Math.max(calculatedDmg, minDmgGuarantee);
+  
+  // 六王戦用は少し強くするが、基本は同じ
   if(defender.isSixKing){
-    dmg=Math.floor(dmg*6);
+    finalDmg = Math.max(finalDmg, defender.maxHp * 0.15); // 6発程度
   }
   
-  return{dmg:Math.max(1,dmg),effectiveness,crit:crit>1};
+  return{dmg:Math.max(1,Math.floor(finalDmg)),effectiveness,crit:crit>1};
 }
 function playSound(type){try{if(!gameState.audioCtx)gameState.audioCtx=new(window.AudioContext||window.webkitAudioContext)();const ctx=gameState.audioCtx,osc=ctx.createOscillator(),gain=ctx.createGain();osc.connect(gain);gain.connect(ctx.destination);const now=ctx.currentTime;if(type==='attack'){osc.frequency.setValueAtTime(200,now);osc.frequency.exponentialRampToValueAtTime(100,now+0.1);gain.gain.setValueAtTime(0.3,now);gain.gain.exponentialRampToValueAtTime(0.01,now+0.1);osc.start();osc.stop(now+0.1);}else if(type==='hit'){osc.frequency.setValueAtTime(150,now);osc.frequency.exponentialRampToValueAtTime(50,now+0.15);gain.gain.setValueAtTime(0.4,now);gain.gain.exponentialRampToValueAtTime(0.01,now+0.15);osc.start();osc.stop(now+0.15);}else if(type==='heal'||type==='levelup'){osc.frequency.setValueAtTime(523,now);osc.frequency.setValueAtTime(659,now+0.1);osc.frequency.setValueAtTime(784,now+0.2);gain.gain.setValueAtTime(0.2,now);gain.gain.exponentialRampToValueAtTime(0.01,now+0.3);osc.start();osc.stop(now+0.3);}else if(type==='shiny'){[523,659,784,1047,1319].forEach((f,i)=>{setTimeout(()=>{const o=ctx.createOscillator(),g=ctx.createGain();o.connect(g);g.connect(ctx.destination);o.type='triangle';o.frequency.value=f;g.gain.setValueAtTime(0.3,ctx.currentTime);g.gain.exponentialRampToValueAtTime(0.01,ctx.currentTime+0.4);o.start();o.stop(ctx.currentTime+0.4);},i*200);});}else if(type==='evolve'){[262,330,392,523,659,784].forEach((f,i)=>{setTimeout(()=>{const o=ctx.createOscillator(),g=ctx.createGain();o.connect(g);g.connect(ctx.destination);o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(0.3,ctx.currentTime);g.gain.exponentialRampToValueAtTime(0.01,ctx.currentTime+0.5);o.start();o.stop(ctx.currentTime+0.5);},i*300);});}else if(type==='tera'){[784,988,1175].forEach((f,i)=>{setTimeout(()=>{const o=ctx.createOscillator(),g=ctx.createGain();o.connect(g);g.connect(ctx.destination);o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(0.4,ctx.currentTime);g.gain.exponentialRampToValueAtTime(0.01,ctx.currentTime+0.5);o.start();o.stop(ctx.currentTime+0.5);},i*100);});}else if(type==='mega'){[523,659,784,1047].forEach((f,i)=>{setTimeout(()=>{const o=ctx.createOscillator(),g=ctx.createGain();o.connect(g);g.connect(ctx.destination);o.type='square';o.frequency.value=f;g.gain.setValueAtTime(0.3,ctx.currentTime);g.gain.exponentialRampToValueAtTime(0.01,ctx.currentTime+0.3);o.start();o.stop(ctx.currentTime+0.3);},i*80);});}else if(type==='zmove'){[440,554,659,880,1109].forEach((f,i)=>{setTimeout(()=>{const o=ctx.createOscillator(),g=ctx.createGain();o.connect(g);g.connect(ctx.destination);o.type='sawtooth';o.frequency.value=f;g.gain.setValueAtTime(0.35,ctx.currentTime);g.gain.exponentialRampToValueAtTime(0.01,ctx.currentTime+0.4);o.start();o.stop(ctx.currentTime+0.4);},i*100);});}else if(type==='dynamax'){[392,523,659,784,1047].forEach((f,i)=>{setTimeout(()=>{const o=ctx.createOscillator(),g=ctx.createGain();o.connect(g);g.connect(ctx.destination);o.type='square';o.frequency.value=f;g.gain.setValueAtTime(0.4,ctx.currentTime);g.gain.exponentialRampToValueAtTime(0.01,ctx.currentTime+0.35);o.start();o.stop(ctx.currentTime+0.35);},i*120);});}}catch(e){}}
 function saveGame(){try{localStorage.setItem('pokemonAdventureSave',JSON.stringify(gameState));alert('💾 セーブしました！');}catch(e){alert('セーブ失敗！');}}
@@ -673,7 +700,7 @@ if(gameState.dailyChallenge&&!gameState.dailyChallengeCompleted){if(gameState.da
 const oldLv=p.level;if(p.exp>=p.expToNext&&p.level<MAX_LEVEL){p.level=Math.min(MAX_LEVEL,p.level+1);p.exp=0;p.expToNext=p.level*100;p.maxHp+=10;p.currentHp=p.maxHp;p.atk=Math.floor(p.atk*1.1);checkLearnMove(p,oldLv,p.level);checkEvolution(p);playSound('levelup');log(`🎉 ${p.nickname}がLv.${p.level}になった！${p.level>=MAX_LEVEL?'（MAX！）':''}`);}
 if(e.isStory){const chapter=STORY_CHAPTERS[e.chapterIdx];gameState.money+=chapter.reward.money;if(chapter.reward.rare)gameState.items.rare+=chapter.reward.rare;if(chapter.reward.mystery)gameState.items.mystery+=chapter.reward.mystery;if(chapter.reward.potion)gameState.items.potion+=chapter.reward.potion;gameState.storyChapter++;alert(`🎉 ${chapter.name} クリア！\n\n報酬：\n💰 ${chapter.reward.money.toLocaleString()}円\n🍬 経験あめ×${chapter.reward.rare||0}\n⭐ 不思議なアメ×${chapter.reward.mystery||0}\n💊 回復薬×${chapter.reward.potion||0}`);if(chapter.isFinal){unlockAchievement('story_clear');setTimeout(()=>{alert('🏆🏆 おめでとう！\n全てのストーリーを完全クリアした！\n\nあなたは真のポケモンマスターだ！\n\n🎊 特別報酬：\n💰 50,000,000円\n🍬 経験あめ×200\n⭐ 不思議なアメ×100\n💊 回復薬×200');},1000);}goHome();return;}
 if(e.isTower){gameState.towerFloor=e.floor;if(e.floor%10===0){const reward={money:e.floor*100,rare:Math.floor(e.floor/10)};gameState.money+=reward.money;gameState.items.rare+=reward.rare;alert(`🗼 ${e.floor}階クリア！\n報酬：${reward.money}円、経験あめ×${reward.rare}`);}if(e.floor===10&&!gameState.achievements.includes('tower_10'))unlockAchievement('tower_10');if(e.floor===50&&!gameState.achievements.includes('tower_50'))unlockAchievement('tower_50');if(e.floor===100&&!gameState.achievements.includes('tower_100'))unlockAchievement('tower_100');goHome();return;}
-if(!gameState.achievements.includes('first_win'))unlockAchievement('first_win');if(e.isRival){gameState.rivalBattles++;if(gameState.rivalBattles>=3&&!gameState.achievements.includes('rival_beat'))unlockAchievement('rival_beat');}if(e.isBoss){gameState.bossDefeated=true;log(`🎊 ボス撃破！伝説・幻解禁！`);if(!gameState.achievements.includes('boss_defeat'))unlockAchievement('boss_defeat');setTimeout(()=>{alert('🏆 おめでとう！伝説・幻ポケモンが解禁されました！');goHome();},1500);return;}gameState.battleCount++;
+if(!gameState.achievements.includes('first_win'))unlockAchievement('first_win');if(e.isBoss){gameState.bossDefeated=true;log(`🎊 ボス撃破！伝説・幻解禁！`);if(!gameState.achievements.includes('boss_defeat'))unlockAchievement('boss_defeat');setTimeout(()=>{alert('🏆 おめでとう！伝説・幻ポケモンが解禁されました！');goHome();},1500);return;}gameState.battleCount++;
 setTimeout(()=>{if(gameState.battleCount%3===0&&gameState.rank<RANKS.length-1){gameState.rank++;if(gameState.rank===RANKS.length-1&&!gameState.achievements.includes('rank_a'))unlockAchievement('rank_a');triggerShinyChance();document.getElementById('battle-screen').classList.remove('active');document.getElementById('rankup-screen').classList.add('active');document.getElementById('rankup-info').innerText=`RANK ${RANKS[gameState.rank-1]} → ${RANKS[gameState.rank]}`;document.getElementById('rankup-reward').innerText=`報酬: 500円 + 色違いチャンス（${gameState.shinyChanceCount}/${SHINY_GUARANTEE_COUNT}）！\n\n🌀 ランクA到達！これからは無限インフィニティバトルだ！`;gameState.money+=500;}else{if(confirm('もう一度戦いますか？')){startBattle();return;}goHome();}updateUI();},1500);}
 function completeDailyChallenge(){if(gameState.dailyChallengeCompleted)return;gameState.dailyChallengeCompleted=true;const reward=gameState.dailyChallenge.reward;if(reward.rare)gameState.items.rare+=reward.rare;if(reward.mystery)gameState.items.mystery+=reward.mystery;if(reward.potion)gameState.items.potion+=reward.potion;if(reward.berry)gameState.items.berry+=reward.berry;if(reward.money)gameState.money+=reward.money;unlockAchievement('daily_clear');alert(`🎉 デイリーチャレンジ完了！\n報酬を受け取った！`);renderDaily();updateUI();}
 function goHome(){gameState.battlePokemon=null;gameState.enemy=null;gameState.isPlayerTurn=true;gameState.defending=false;gameState.lastUsedPokemonId=null;gameState.teamBattle=null;resetBattleState();document.getElementById('battle-screen').classList.remove('active');document.getElementById('rankup-screen').classList.remove('active');document.getElementById('legend-rush-screen').classList.remove('active');document.getElementById('shiny-chance-overlay').classList.remove('show');document.getElementById('home-screen').classList.add('active');document.getElementById('rank-display').innerText=`RANK ${RANKS[gameState.rank]}`;document.getElementById('battle-log').innerHTML='';document.getElementById('battle-field').className='battle-field';showHomeTab('team');updateUI();renderDaily();renderStory();renderTower();renderTera();renderHunt();renderGymLeaders();checkKitUnlock();checkSixKingUnlock();autoSave();}
